@@ -2,12 +2,11 @@ package com.task.service;
 
 
 import com.task.models.entity.RoleEntity;
-import com.task.models.request.RoleRequest;
-import lombok.RequiredArgsConstructor;
 import com.task.models.entity.UserEntity;
 import com.task.models.request.UserRequest;
-import org.springframework.stereotype.Service;
 import com.task.repositories.UserRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +39,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(UserEntity userEntity) {
-
+    public void deleteUser(String login) {
+        userRepository.deleteById(login);
     }
 
     @Override

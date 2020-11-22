@@ -1,14 +1,11 @@
 package com.task.models.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString(onlyExplicitlyIncluded = true)
@@ -27,12 +24,4 @@ public class RoleEntity {
     @ToString.Include
     private String roleName;
 
-    /*@JsonManagedReference
-    @ManyToMany
-    @JoinTable(
-            name = "user_role",
-            joinColumns = @JoinColumn(name = "login"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private List<UserEntity> userEntityList = new ArrayList<>();*/
 }

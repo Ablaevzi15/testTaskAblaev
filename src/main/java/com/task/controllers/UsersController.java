@@ -31,9 +31,9 @@ public class UsersController {
         return userService.getUserByLogin(login);
     }
 
-    @PostMapping("/add")
-    public void addUser() {
-
+    @DeleteMapping("/delete")
+    public void deleteUser(@RequestBody String login) {
+        userService.deleteUser(login);
     }
 
     @GetMapping("/role")

@@ -1,7 +1,6 @@
 package com.task.models.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -32,7 +31,7 @@ public class UserEntity {
     @ToString.Include
     private String password;
 
-    @JsonProperty("roles")
+    //@JsonProperty("roles")
     @JsonManagedReference
     @ManyToMany
     @JoinTable(
