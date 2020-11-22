@@ -1,12 +1,15 @@
 package com.task.service;
 
 
+import com.task.models.entity.RoleEntity;
+import com.task.models.request.RoleRequest;
 import lombok.RequiredArgsConstructor;
 import com.task.models.entity.UserEntity;
 import com.task.models.request.UserRequest;
 import org.springframework.stereotype.Service;
 import com.task.repositories.UserRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,19 +29,30 @@ public class UserServiceImpl implements UserService {
         }).collect(Collectors.toList());
     }
 
-    public UserEntity getUserByLogin() {
-        return null;
+    @Override
+    public UserEntity getUserByLogin(String login) {
+        UserEntity userEntity = userRepository.getUserByLogin(login);
+        List<RoleEntity> roles = userEntity.getRoleEntities().stream()
+                .peek(roleEntity -> userEntity.setRoleEntities(new ArrayList<>()))
+                .collect(Collectors.toList());
+        userEntity.setRoleEntities(roles);
+        return userEntity;
     }
 
+    @Override
     public void deleteUser(UserEntity userEntity) {
 
     }
 
+    @Override
     public void addUser(UserEntity userEntity) {
 
     }
 
+    @Override
     public void editUser() {
 
     }
+
+
 }

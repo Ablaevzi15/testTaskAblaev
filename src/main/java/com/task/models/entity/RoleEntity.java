@@ -1,7 +1,7 @@
 package com.task.models.entity;
 
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -14,32 +14,25 @@ import java.util.List;
 @ToString(onlyExplicitlyIncluded = true)
 @Data
 @Entity
-@Table(name = "user_1")
-public class UserEntity {
+@Table(name = "role")
+public class RoleEntity {
     @Id
-    @Column(name = "login")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     @ToString.Include
-    private String login;
+    private Long id;
 
-    @Column(name = "name")
+    @Column(name = "role_name")
     @EqualsAndHashCode.Include
     @ToString.Include
-    private String name = "";
+    private String roleName;
 
-    @Column(name = "password")
-    @EqualsAndHashCode.Include
-    @ToString.Include
-    private String password;
-
-    @JsonProperty("roles")
-    @JsonManagedReference
+    /*@JsonManagedReference
     @ManyToMany
     @JoinTable(
             name = "user_role",
             joinColumns = @JoinColumn(name = "login"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private List<RoleEntity> roleEntities = new ArrayList<>();
-
+    private List<UserEntity> userEntityList = new ArrayList<>();*/
 }

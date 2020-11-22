@@ -7,7 +7,10 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface UserRepository extends JpaRepository <UserEntity,String> {
+public interface UserRepository extends JpaRepository<UserEntity, String> {
     @Query(value = "SELECT u FROM UserEntity u")
     List<UserEntity> getAllUser();
+
+    @Query(value = "select u FROM UserEntity u WHERE u.login = :login")
+    UserEntity getUserByLogin(String login);
 }

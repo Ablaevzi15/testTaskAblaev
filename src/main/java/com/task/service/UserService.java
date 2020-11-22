@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserService {
     List<UserRequest> getAllUser();
-    UserEntity getUserByLogin();
+    UserEntity getUserByLogin(String login);
     void deleteUser(UserEntity userEntity);
     void addUser(UserEntity userEntity);
     void editUser();
